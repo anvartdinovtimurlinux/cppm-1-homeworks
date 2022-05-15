@@ -10,7 +10,7 @@ using std::ofstream;
 const string FILENAME_SOURCE = "../lesson_1/task_1/in.txt";
 const string FILENAME_TARGET = "../lesson_1/task_1/out.txt";
 
-int* createArray(ifstream& source, int size)
+int* createArray(ifstream &source, int size)
 {
     int* arr = new int[size];
     for (int i = 0; i < size; ++i)
@@ -29,11 +29,11 @@ int* shiftArray(int* arr, int size, int shift)
         shiftedArr[i] = arr[index];
     }
 
-    delete[] arr;
+    delete [] arr;
     return shiftedArr;
 }
 
-void writeArrayToFile(ofstream& target, int* arr, int size)
+void writeArrayToFile(ofstream &target, int* arr, int size)
 {
     target << size << endl;
 
@@ -68,8 +68,8 @@ int main()
     writeArrayToFile(target, arr1, size1);
     target.close();
 
-    delete [] arr1;
-    delete [] arr1;
+    delete[] arr1;
+    delete[] arr1;
 
     return 0;
 }
