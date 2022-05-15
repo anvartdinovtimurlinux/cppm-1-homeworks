@@ -10,10 +10,7 @@ using std::ofstream;
 const string FILENAME_SOURCE = "../lesson_1/task_1/in.txt";
 const string FILENAME_TARGET = "../lesson_1/task_1/out.txt";
 
-static ifstream source;
-static ofstream target;
-
-int* createArray(int size)
+int* createArray(ifstream& source, int size)
 {
     int* arr = new int[size];
     for (int i = 0; i < size; ++i)
@@ -36,7 +33,7 @@ int* shiftArray(int* arr, int size, int shift)
     return shiftedArr;
 }
 
-void writeArrayToFile(int* arr, int size)
+void writeArrayToFile(ofstream& target, int* arr, int size)
 {
     target << size << endl;
 
@@ -50,16 +47,16 @@ void writeArrayToFile(int* arr, int size)
 
 int main()
 {
-    source.open(FILENAME_SOURCE);
+    ifstream source;
+    ofstream target;
 
+    source.open(FILENAME_SOURCE);
     int size1 = 0;
     source >> size1;
-    int* arr1 = createArray(size1);
-
+    int* arr1 = createArray(source, size1);
     int size2 = 0;
     source >> size2;
-    int* arr2 = createArray(size2);
-
+    int* arr2 = createArray(source, size2);
     source.close();
 
 
@@ -67,8 +64,12 @@ int main()
     arr2 = shiftArray(arr2, size2, -1);
 
     target.open(FILENAME_TARGET);
-    writeArrayToFile(arr2, size2);
-    writeArrayToFile(arr1, size1);
+    writeArrayToFile(target, arr2, size2);
+    writeArrayToFile(target, arr1, size1);
     target.close();
+
+    delete [] arr1;
+    delete [] arr1;
+
     return 0;
 }
