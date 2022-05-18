@@ -45,4 +45,6 @@ int main()
     std::cin >> newMoney;
     changeAccount(acc, newMoney);
     printMoney(acc);
+
+    return 0;
 }
