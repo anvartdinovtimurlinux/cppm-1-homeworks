@@ -80,4 +80,6 @@ int main()
             std::cout << monthToString(static_cast<Months>(answer)) << std::endl;
         }
     }
+
+    return 0;
 }
