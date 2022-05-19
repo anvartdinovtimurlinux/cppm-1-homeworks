@@ -2,12 +2,12 @@
 
 struct Address
 {
-    std::string country;
-    std::string city;
-    std::string street;
-    int house;
-    int apartment;
-    int index;
+    std::string country = "";
+    std::string city = "";
+    std::string street = "";
+    std::uint32_t house = 0;
+    std::uint32_t apartment = 0;
+    std::uint32_t index = 0;
 };
 
 void printAddress(Address &address)
