@@ -2,14 +2,14 @@
 
 struct Account
 {
-    int invoice;
+    std::uint32_t invoice;
     std::string owner;
     double money;
 };
 
 Account buildAccount()
 {
-    int invoice;
+    std::uint32_t invoice;
     std::cout << "Введите номер счёта: ";
     std::cin >> invoice;
 
@@ -17,9 +17,12 @@ Account buildAccount()
     std::cout << "Введите имя владельца: ";
     std::cin >> owner;
 
-    double money;
-    std::cout << "Введите баланс: ";
-    std::cin >> money;
+    double money = -1.0;
+    while (money < 0)
+    {
+        std::cout << "Введите баланс (неотрицательное значение): ";
+        std::cin >> money;
+    }
 
     return Account {invoice, owner, money};
 }
@@ -40,9 +43,12 @@ int main()
     Account acc = buildAccount();
     printMoney(acc);
 
-    double newMoney;
-    std::cout << "Введите новый баланс: ";
-    std::cin >> newMoney;
+    double newMoney = -1.0;
+    while (newMoney < 0)
+    {
+        std::cout << "Введите новый баланс (неотрицательное значение): ";
+        std::cin >> newMoney;
+    }
     changeAccount(acc, newMoney);
     printMoney(acc);
 
