@@ -2,9 +2,9 @@
 
 struct Account
 {
-    std::uint32_t invoice;
-    std::string owner;
-    double money;
+    std::uint32_t invoice = 0;
+    std::string owner = "unnamed";
+    double money = 0.0;
 };
 
 Account buildAccount()
