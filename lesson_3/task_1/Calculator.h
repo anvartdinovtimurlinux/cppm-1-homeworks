@@ -5,8 +5,8 @@
 class Calculator
 {
 private:
-    int num1;
-    int num2;
+    double num1;
+    double num2;
 
 public:
     Calculator();
