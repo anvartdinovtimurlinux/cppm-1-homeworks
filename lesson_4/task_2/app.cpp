@@ -8,26 +8,11 @@ const std::string IN_FILENAME = "../lesson_4/task_2/in.txt";
 const std::string OUT_FILENAME = "../lesson_4/task_2/out.txt";
 
 
-int main()
+void sort(Address** addresses, int size)
 {
-    std::ifstream in(IN_FILENAME);
-    int addressAmount;
-    in >> addressAmount;
-
-    std::string city, street;
-    std::uint32_t house, apartment;
-    Address* addresses[addressAmount];
-    for (int i = 0; i < addressAmount; ++i)
+    for (int i = 0; i < size - 1; ++i)
     {
-        in >> city >> street >> house >> apartment;
-        addresses[i] = new Address {city, street, house, apartment};
-    }
-    in.close();
-
-
-    for (int i = 0; i < addressAmount - 1; ++i)
-    {
-        for (int j = i; j < addressAmount - 1; ++j)
+        for (int j = i; j < size - 1; ++j)
         {
             if ((addresses[j]->getCity()).compare(addresses[j + 1]->getCity()) > 0)
             {
@@ -37,11 +22,31 @@ int main()
             }
         }
     }
+}
+
+int main()
+{
+    std::ifstream in(IN_FILENAME);
+    int addressAmount;
+    in >> addressAmount;
+
+    std::string city, street;
+    std::uint32_t house, apartment;
+    Address** addresses = new Address* [addressAmount];
+    for (int i = 0; i < addressAmount; ++i)
+    {
+        in >> city >> street >> house >> apartment;
+        addresses[i] = new Address {city, street, house, apartment};
+    }
+    in.close();
+
+
+    sort(addresses, addressAmount);
 
 
     std::ofstream out(OUT_FILENAME);
     out << addressAmount << std::endl;
-    for (int i = 0; i <addressAmount; ++i)
+    for (int i = 0; i < addressAmount; ++i)
     {
         out << addresses[i]->toString();
     }
@@ -52,5 +57,5 @@ int main()
     {
         delete addresses[i];
     }
-//    delete[] *addresses;
+    delete[] addresses;
 }

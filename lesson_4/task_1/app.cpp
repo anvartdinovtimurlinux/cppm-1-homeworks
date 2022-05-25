@@ -16,11 +16,11 @@ int main()
 
     std::string city, street;
     std::uint32_t house, apartment;
-    Address* addresses[addressAmount];
+    Address* addresses = new Address[addressAmount];
     for (int i = 0; i < addressAmount; ++i)
     {
         in >> city >> street >> house >> apartment;
-        addresses[i] = new Address {city, street, house, apartment};
+        addresses[i] = Address {city, street, house, apartment};
     }
     in.close();
 
@@ -29,14 +29,10 @@ int main()
     out << addressAmount << std::endl;
     for (int i = addressAmount - 1; i >= 0; --i)
     {
-        out << addresses[i]->toString();
+        out << addresses[i].toString();
     }
     out.close();
 
 
-    for (int i = 0; i < addressAmount; ++i)
-    {
-        delete addresses[i];
-    }
-    delete[] *addresses;
+    delete[] addresses;
 }

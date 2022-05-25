@@ -1,6 +1,8 @@
 #include "Address.h"
 
 
+Address::Address() {}
+
 Address::Address(std::string city, std::string street, std::uint32_t house, std::uint32_t apartment)
 {
     this->city = city;
