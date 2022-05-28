@@ -48,7 +48,7 @@ public:
 
 
 // Равносторонний треугольник
-class EquilateralTriangle : public Triangle
+class EquilateralTriangle : public IsoscelesTriangle
 {
 public:
     EquilateralTriangle(std::uint32_t side);

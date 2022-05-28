@@ -81,7 +81,7 @@ IsoscelesTriangle::IsoscelesTriangle(std::uint32_t sideAC, std::uint32_t sideB,
 
 // Равносторонний треугольник
 EquilateralTriangle::EquilateralTriangle(std::uint32_t side)
-        : Triangle(side, side, side, 60, 60, 60)
+        : IsoscelesTriangle(side, side, 60, 60)
 {
     name = "Равносторонний треугольник";
 }

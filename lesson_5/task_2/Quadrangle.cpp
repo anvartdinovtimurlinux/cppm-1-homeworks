@@ -74,22 +74,6 @@ std::string Quadrangle::getAnglesInfo()
 }
 
 
-// Прямоугольник
-Rectangle::Rectangle(std::uint32_t sideAC, std::uint32_t sideBD)
-        : Quadrangle(sideAC, sideBD, sideAC, sideBD, 90, 90, 90, 90)
-{
-    name = "Прямоугольник";
-}
-
-
-// Квадрат
-Square::Square(std::uint32_t side)
-        : Quadrangle(side, side, side, side, 90, 90, 90, 90)
-{
-    name = "Квадрат";
-}
-
-
 // Параллелограмм
 Parallelogram::Parallelogram(std::uint32_t sideAC, std::uint32_t sideBD,
                              std::uint32_t angleAC, std::uint32_t angleBD)
@@ -99,10 +83,26 @@ Parallelogram::Parallelogram(std::uint32_t sideAC, std::uint32_t sideBD,
 }
 
 
+// Прямоугольник
+Rectangle::Rectangle(std::uint32_t sideAC, std::uint32_t sideBD)
+        : Parallelogram(sideAC, sideBD, 90, 90)
+{
+    name = "Прямоугольник";
+}
+
+
+// Квадрат
+Square::Square(std::uint32_t side)
+        : Rectangle(side, side)
+{
+    name = "Квадрат";
+}
+
+
 // Ромб
 Rhombus::Rhombus(std::uint32_t side,
                  std::uint32_t angleAC, std::uint32_t angleBD)
-        : Quadrangle(side, side, side, side, angleAC, angleBD, angleAC, angleBD)
+        : Parallelogram(side, side, angleAC, angleBD)
 {
     name = "Ромб";
 }

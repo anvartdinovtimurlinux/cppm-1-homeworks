@@ -33,22 +33,6 @@ protected:
 };
 
 
-// Прямоугольник
-class Rectangle : public Quadrangle
-{
-public:
-    Rectangle(std::uint32_t sideAC, std::uint32_t sideBD);
-};
-
-
-// Квадрат
-class Square : public Quadrangle
-{
-public:
-    Square(std::uint32_t side);
-};
-
-
 // Параллелограмм
 class Parallelogram : public Quadrangle
 {
@@ -58,8 +42,24 @@ public:
 };
 
 
+// Прямоугольник
+class Rectangle : public Parallelogram
+{
+public:
+    Rectangle(std::uint32_t sideAC, std::uint32_t sideBD);
+};
+
+
+// Квадрат
+class Square : public Rectangle
+{
+public:
+    Square(std::uint32_t side);
+};
+
+
 // Ромб
-class Rhombus : public Quadrangle
+class Rhombus : public Parallelogram
 {
 public:
     Rhombus(std::uint32_t side,
