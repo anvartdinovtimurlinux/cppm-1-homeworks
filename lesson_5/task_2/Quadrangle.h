@@ -1,5 +1,5 @@
-#ifndef CPPM_1_QUADRANGLE_H
-#define CPPM_1_QUADRANGLE_H
+#ifndef QUADRANGLE_H
+#define QUADRANGLE_H
 
 #include "Figure.h"
 
